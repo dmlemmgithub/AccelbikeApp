@@ -15,6 +15,12 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
+    /**
+     * -------------------------------------------------------------
+     * -----------------Alexis--------------------------------------
+     */
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

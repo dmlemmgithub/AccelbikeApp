@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
+
+
 
     <!-- Texto pagina principal-->
     <TextView
@@ -15,17 +17,19 @@
         android:textColor="@android:color/holo_blue_dark"
         android:text="Contenido Principal"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoLink="web"
-        android:textSize="15sp"
-        android:layout_marginTop="10dp"
+    <Button
+        android:id="@+id/accelerar"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="@string/accelerar"
+        android:textSize="30sp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="https://trello.com/b/tYHDYWrO/accelbike"
-        android:textColor="#000"
-        android:layout_below="@+id/textView"
-        android:textStyle="italic"/>
+        android:layout_marginBottom="75dp"
+        android:layout_alignParentStart="false"
+        android:background="#329d11"
+        android:textColor="#ffffff" />
+
     <!-- Fin Texto pagina principal-->
 
 </RelativeLayout>

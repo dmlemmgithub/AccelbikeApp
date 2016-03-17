@@ -26,4 +26,25 @@
         android:layout_below="@+id/textView"
         android:textStyle="italic"/>
 
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ble"
+        android:id="@+id/ble"
+        android:textOn="@string/on"
+        android:textOff="@string/off"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gps"
+        android:id="@+id/gps"
+        android:textOn="@string/on"
+        android:textOff="@string/off"
+        android:layout_below="@+id/ble"
+        android:layout_alignEnd="@+id/ble" />
+
+
 </RelativeLayout>

@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         /**
          * Setup Drawer Toggle of the Toolbar
          */

@@ -257,7 +257,7 @@ public class ConfigFragment extends Fragment {
 
         }
 
-        //Aqui se recibe la info que nos manda el dispositivo
+        //Aqui se recibe la info que nos manda el dispositivoghjg
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt,
                                          BluetoothGattCharacteristic characteristic, int status) {

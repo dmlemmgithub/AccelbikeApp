@@ -237,6 +237,8 @@ public class ConfigFragment extends Fragment {
             List<BluetoothGattService> services = gatt.getServices();
             Log.i("onServicesDiscovered", services.toString());
 
+
+            //dd
             for (BluetoothGattService s : services){
 
                 Log.i("onServicesDiscovered", "Servicio: " + s.getUuid());

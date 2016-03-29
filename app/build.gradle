@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'gmaps'
             keyPassword '9bmlVR'
-            storeFile file('/home/rodry/pene')
+            storeFile file('keystores/llave_prueba_keystore')
             storePassword '9bmlVR'
         }
     }

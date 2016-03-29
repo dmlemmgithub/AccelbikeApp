@@ -15,14 +15,6 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
 
-    /**
-     * -------------------------------------------------------------
-     * -----------------Alexis--------------------------------------
-     * -------------------------------------------------------------
-     * -------------------------------------------------------------
-     */
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +42,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 mDrawerLayout.closeDrawers();
-
-                if (menuItem.getItemId() == R.id.nav_item_sent) {
-                    FragmentTransaction sentFragmentTransaction = mFragmentManager.beginTransaction();
-                    sentFragmentTransaction.replace(R.id.containerView,new SentFragment()).commit();
-
-                }
 
                 if (menuItem.getItemId() == R.id.nav_item_inbox) {
                     FragmentTransaction inboxFragmentTransaction = mFragmentManager.beginTransaction();

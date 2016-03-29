@@ -12,16 +12,37 @@
         android:id="@+id/textView"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/holo_red_light"
-        android:text="Contenido ayuda"/>
+        android:text="Proyecto universitario"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autoLink="web"
         android:textSize="15sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:text="https://trello.com/b/tYHDYWrO/accelbike"
+        android:text="Rodrigo Claudio Miguez Rein"
+        android:textColor="#000"
+        android:layout_below="@+id/textView"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="Alexis Vizcaya Hervella"
+        android:textColor="#000"
+        android:layout_below="@+id/textView"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:text="David Muñoz Lorenzo"
         android:textColor="#000"
         android:layout_below="@+id/textView"
         android:textStyle="italic"/>

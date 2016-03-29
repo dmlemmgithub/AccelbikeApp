@@ -7,25 +7,66 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:textSize="30sp"
         android:gravity="center"
         android:id="@+id/textView"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/holo_blue_dark"
-        android:text="Contenido Principal"/>
+        android:text="Sesión Actual"/>
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inicio"
+        android:id="@+id/inicio"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/parar"
+        android:layout_toStartOf="@+id/cronometro" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="parar"
+        android:id="@+id/parar"
+        android:textSize="20sp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/cronometro" />
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/cronometro"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:textSize="40sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/acel"
+        android:layout_marginTop="100dp"
+        android:textSize="30sp"
+        android:layout_above="@+id/inicio"
+        android:layout_centerHorizontal="true" />
+
+    <!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autoLink="web"
-        android:textSize="15sp"
-        android:layout_marginTop="10dp"
+        android:textSize="10sp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:text="https://trello.com/b/tYHDYWrO/accelbike"
         android:textColor="#000"
         android:layout_below="@+id/textView"
         android:textStyle="italic"/>
+    -->
     <!-- Fin Texto pagina principal-->
 
 </RelativeLayout>

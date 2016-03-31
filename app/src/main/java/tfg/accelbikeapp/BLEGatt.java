@@ -19,6 +19,21 @@ public class BLEGatt {
 
     private static BLEGatt instancia;
 
+    private BLEGatt(){
+
+        super();
+
+    }
+
+    public static BLEGatt getInstancia(){
+
+        if (instancia == null)
+            instancia = new BLEGatt();
+
+        return instancia;
+
+    }
+
     private BluetoothGatt mGatt;
 
     private static final UUID SERVICE_UUID = UUID.fromString("0000a000-0000-1000-8000-00805f9b34fb");
@@ -67,16 +82,6 @@ public class BLEGatt {
 
             leer();
 
-            //gatt.readCharacteristic(gatt.getService(IMMEDIATE_ALERT_UUID).getCharacteristic(ALERT_LEVEL_UUID));
-           /*int s = gatt.getService(IMMEDIATE_ALERT_UUID).getCharacteristic(ALERT_LEVEL_UUID)
-                    .getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 0);*/
-
-            // Esto lee la primera caracteristica del primer servicio, mirar como pillarlas bien.
-            //gatt.readCharacteristic(services.get(2).getCharacteristics().get(0));
-            /*int s = gatt.getService(IMMEDIATE_ALERT_UUID).getCharacteristic(ALERT_LEVEL_UUID)
-                    .getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 0);
-            Log.i("ALERT_SERVICE", "" + s);*/
-
         }
 
         //Aqui se recibe la info que nos manda el dispositivoghjg
@@ -101,21 +106,6 @@ public class BLEGatt {
 
         }
     };
-
-    private BLEGatt(){
-
-        super();
-
-    }
-
-    public static BLEGatt getInstancia(){
-
-        if (instancia == null)
-            instancia = new BLEGatt();
-
-        return instancia;
-
-    }
 
     public void connectToDevice(Context context, BluetoothDevice device) {
 

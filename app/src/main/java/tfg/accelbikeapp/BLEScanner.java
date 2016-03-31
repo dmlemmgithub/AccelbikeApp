@@ -108,4 +108,12 @@ public class BLEScanner { // Alexis joputa
         return dispositivos;
 
     }
+
+    public void destroy(){
+
+        scanner.stopScan(mScanCallback);
+        scanner = null;
+        dispositivos = null;
+
+    }
 }

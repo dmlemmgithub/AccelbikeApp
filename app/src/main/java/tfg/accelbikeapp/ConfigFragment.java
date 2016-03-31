@@ -55,8 +55,6 @@ public class ConfigFragment extends Fragment {
     private tfg.accelbikeapp.BluetoothManager manager;
     private static final long SCAN_PERIOD = 10000;
 
-    private BluetoothAdapter bAdapter;
-
     private static final int REQUEST_ENABLE_BT = 1;
 
     private DispAdapter dispAdapter;
@@ -111,8 +109,6 @@ public class ConfigFragment extends Fragment {
         /*ArrayAdapter<String> adapatdor = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, datosLista);
         lista.setAdapter(adapatdor);*/
 
-        final Context context = this.getContext();
-
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -146,7 +142,11 @@ public class ConfigFragment extends Fragment {
     }
 
     public void onDestroy(){
+
         super.onDestroy();
+
+        manager.destroy();
+        manager = null;
 
         Log.i("ConfigFragment", "destruido");
 

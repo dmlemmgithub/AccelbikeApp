@@ -62,4 +62,11 @@ public class BluetoothManager {
 
     }
 
+    public void destroy(){
+
+        mScanner.destroy();
+        mScanner = null;
+        bAdapter = null;
+
+    }
 }

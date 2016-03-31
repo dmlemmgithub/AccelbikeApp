@@ -111,7 +111,8 @@ public class BLEScanner {
 
     public void destroy(){
 
-        scanner.stopScan(mScanCallback);
+        if (scanner != null)
+            scanner.stopScan(mScanCallback);
         scanner = null;
         dispositivos = null;
 

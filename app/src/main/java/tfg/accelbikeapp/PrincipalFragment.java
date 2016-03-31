@@ -22,6 +22,7 @@ public class PrincipalFragment extends Fragment implements GattObserver{
     Button inicio, parar;
     Chronometer crono;
     TextView acel;
+    private boolean hilo;
     long Time = 0;
 
     @Nullable
@@ -46,29 +47,60 @@ public class PrincipalFragment extends Fragment implements GattObserver{
         parar.setEnabled(false);
         acel.setText("info acel");
 
+        final Thread th = new Thread(new Runnable() {
+
+            public void run() {
+
+                while (!Thread.interrupted()) {
+
+                    BLEGatt.getInstancia().leer();
+
+                    try {
+
+                        Thread.sleep(1000);
+
+                    }
+                    catch (InterruptedException e) {
+
+                        return;
+
+                    }
+                }
+            }
+        });
+
         inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                crono.start();
                 inicio.setEnabled(false);
                 parar.setEnabled(true);
                 crono.setBase(SystemClock.elapsedRealtime());
-                crono.start();
+                hilo = true;
+                th.start();
             }
         });
 
         parar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 inicio.setEnabled(true);
                 parar.setEnabled(false);
                 crono.stop();
+                th.interrupt();
+                hilo = false;
+
             }
         });
     }
 
     public void onDataRead(List<Short> valores){
 
+       // acel.setText(valores.get(0));
 
+        Log.i("PrincipalFragment", "He recibido un dato!");
 
     }
 }

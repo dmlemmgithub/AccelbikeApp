@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by rodry on 30/03/16.
  */
-public class BLEScanner { // Alexis joputa
+public class BLEScanner {
 
     private BluetoothLeScanner scanner;
     private ArrayList<BluetoothDevice> dispositivos;

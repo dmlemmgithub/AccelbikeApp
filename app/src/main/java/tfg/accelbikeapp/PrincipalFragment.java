@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,12 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by David on 22/02/2016.
  */
-public class PrincipalFragment extends Fragment {
+public class PrincipalFragment extends Fragment implements GattObserver{
 
     Button inicio, parar;
     Chronometer crono;
@@ -27,6 +30,7 @@ public class PrincipalFragment extends Fragment {
 
         //RelativeLayout ll = (RelativeLayout) inflater.inflate(R.layout.principal_layout, container, false);
         View v = inflater.inflate(R.layout.principal_layout, null);
+        BLEGatt.getInstancia().registerObserver(this);
         initUI(v);
         return v;
     }
@@ -60,5 +64,11 @@ public class PrincipalFragment extends Fragment {
                 crono.stop();
             }
         });
+    }
+
+    public void onDataRead(List<Short> valores){
+
+
+
     }
 }

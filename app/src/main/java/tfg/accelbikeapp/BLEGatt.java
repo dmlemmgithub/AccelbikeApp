@@ -9,6 +9,7 @@ import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,10 +19,11 @@ import java.util.UUID;
 public class BLEGatt {
 
     private static BLEGatt instancia;
+    private ArrayList<GattObserver> observers;
 
     private BLEGatt(){
 
-        super();
+        observers = new ArrayList<>();
 
     }
 
@@ -32,6 +34,21 @@ public class BLEGatt {
 
         return instancia;
 
+    }
+
+    public void registerObserver(GattObserver observer){
+
+        observers.add(observer);
+
+    }
+
+    private void notifyObservers(ArrayList<Short> valor){
+
+        for (GattObserver ob : observers) {
+
+            ob.onDataRead(valor);
+
+        }
     }
 
     private BluetoothGatt mGatt;
@@ -80,7 +97,7 @@ public class BLEGatt {
 
             }
 
-            leer();
+            leer(); //TODO Esto sobra
 
         }
 
@@ -88,6 +105,8 @@ public class BLEGatt {
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt,
                                          BluetoothGattCharacteristic characteristic, int status) {
+
+            ArrayList<Short> valores = new ArrayList<>(3);
 
             byte[] datos = characteristic.getValue();
 
@@ -99,6 +118,12 @@ public class BLEGatt {
 
             short z = datos[4];
             z = (short) (((z << 8) & 0xFF00) | (datos[5] & 0x00FF));
+
+            valores.add(0, x);
+            valores.add(1, y);
+            valores.add(2, z);
+
+            notifyObservers(valores);
 
             Log.i("Eje X", Integer.toString(x));
             Log.i("Eje Y", Integer.toString(y));

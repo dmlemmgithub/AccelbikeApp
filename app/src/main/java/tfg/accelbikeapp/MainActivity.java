@@ -69,4 +69,11 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
     }
+
+    public void onDestroy(){
+
+        super.onDestroy();
+        BLEGatt.getInstancia().disconnect();
+
+    }
 }

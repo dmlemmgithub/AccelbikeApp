@@ -3,7 +3,7 @@
 
     <item android:title="Accelbike"
         android:id="@+id/nav_item_inbox"
-        android:icon="@drawable/iconbike"/>
+        android:icon="@drawable/icon"/>
 
     <!-- -->
     <group android:id="@+id/group_settings_id">

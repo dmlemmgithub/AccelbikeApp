@@ -46,7 +46,7 @@ public class BLEGatt {
 
         for (GattObserver ob : observers) {
 
-            ob.onDataRead(valor);
+           ob.onDataRead(valor);
 
         }
     }
@@ -97,7 +97,7 @@ public class BLEGatt {
 
             }
 
-            leer(); //TODO Esto sobra
+            //leer(); //TODO Esto sobra
 
         }
 

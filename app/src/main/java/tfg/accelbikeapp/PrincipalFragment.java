@@ -1,5 +1,6 @@
 package tfg.accelbikeapp;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
@@ -22,7 +23,9 @@ public class PrincipalFragment extends Fragment implements GattObserver{
     Button inicio, parar;
     Chronometer crono;
     TextView acel;
-    private boolean hilo;
+
+    Thread th;
+
     long Time = 0;
 
     @Nullable
@@ -47,7 +50,36 @@ public class PrincipalFragment extends Fragment implements GattObserver{
         parar.setEnabled(false);
         acel.setText("info acel");
 
-        final Thread th = new Thread(new Runnable() {
+        inicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //TODO comprobar que BLEGatt esta conectado
+                crono.start();
+                inicio.setEnabled(false);
+                parar.setEnabled(true);
+                crono.setBase(SystemClock.elapsedRealtime());
+                startThread();
+
+            }
+        });
+
+        parar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                inicio.setEnabled(true);
+                parar.setEnabled(false);
+                crono.stop();
+                stopThread();
+
+            }
+        });
+    }
+
+    public void startThread(){
+
+        th = new Thread(new Runnable() {
 
             public void run() {
 
@@ -69,33 +101,15 @@ public class PrincipalFragment extends Fragment implements GattObserver{
             }
         });
 
-        inicio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        th.start();
 
-                //TODO comprobar que BLEGatt esta conectado
-                crono.start();
-                inicio.setEnabled(false);
-                parar.setEnabled(true);
-                crono.setBase(SystemClock.elapsedRealtime());
-                hilo = true;
-                th.start();
+    }
 
-            }
-        });
+    public void stopThread(){
 
-        parar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        th.interrupt();
+        th = null;
 
-                inicio.setEnabled(true);
-                parar.setEnabled(false);
-                crono.stop();
-                th.interrupt();
-                hilo = false;
-
-            }
-        });
     }
 
     public void onDestroy(){
@@ -107,9 +121,18 @@ public class PrincipalFragment extends Fragment implements GattObserver{
 
     }
 
-    public void onDataRead(List<Short> valores){
+    public void onDataRead(final List<Short> valores){
 
-       // acel.setText(valores.get(0));
+        this.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                acel.setText(Short.toString(valores.get(0)) + ", " +
+                             Short.toString(valores.get(1)) + ", " +
+                             Short.toString(valores.get(2)));
+
+            }
+        });
 
         Log.i("PrincipalFragment", "He recibido un dato!");
 

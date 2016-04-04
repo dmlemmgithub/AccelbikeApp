@@ -73,12 +73,14 @@ public class PrincipalFragment extends Fragment implements GattObserver{
             @Override
             public void onClick(View v) {
 
+                //TODO comprobar que BLEGatt esta conectado
                 crono.start();
                 inicio.setEnabled(false);
                 parar.setEnabled(true);
                 crono.setBase(SystemClock.elapsedRealtime());
                 hilo = true;
                 th.start();
+
             }
         });
 
@@ -94,6 +96,15 @@ public class PrincipalFragment extends Fragment implements GattObserver{
 
             }
         });
+    }
+
+    public void onDestroy(){
+
+        Log.i("PrincipalFragment", "Destruido");
+
+        super.onDestroy();
+        BLEGatt.getInstancia().removeObserver(this);
+
     }
 
     public void onDataRead(List<Short> valores){

@@ -42,6 +42,12 @@ public class BLEGatt {
 
     }
 
+    public void removeObserver(GattObserver observer){
+
+        observers.remove(observer);
+
+    }
+
     private void notifyObservers(ArrayList<Short> valor){
 
         for (GattObserver ob : observers) {

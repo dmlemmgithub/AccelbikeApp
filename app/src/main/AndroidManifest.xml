@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tfg.accelbikeapp" >
 
+    <!-- permisos para acceder al Bluetooth del movil -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+    <!-- permisos para acceder a la ubicacion y a Maps -->
     <permission
         android:name="android.maps.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
@@ -38,8 +44,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyA1rpRSlmgc7nEaa9yFdZVfBohhLrDRl0k" />
-
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

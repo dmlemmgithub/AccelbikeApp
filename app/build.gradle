@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+
     signingConfigs {
         config {
             keyAlias 'gmaps'
@@ -11,10 +12,11 @@ android {
     }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+
     defaultConfig {
         applicationId "tfg.accelbikeapp"
         minSdkVersion 21
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -26,8 +28,6 @@ android {
         debug {
             signingConfig signingConfigs.config
         }
-    }
-    productFlavors {
     }
 }
 

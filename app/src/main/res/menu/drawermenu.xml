@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Inbox"
+    <item android:title="Accelbike"
         android:id="@+id/nav_item_inbox"
-        android:icon="@drawable/inbox"/>
-
-    <item android:title="Sent"
-        android:id="@+id/nav_item_sent"
-        android:icon="@drawable/sent"/>
+        android:icon="@drawable/icon"/>
 
     <!-- -->
     <group android:id="@+id/group_settings_id">

@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -55,14 +54,7 @@ public class PrincipalFragment extends Fragment implements GattObserver{
             @Override
             public void onClick(View v) {
 
-                // Si no esta conectado al dispositivo no hacemos nada
-                if (!BLEGatt.getInstancia().isConnected()){
-
-                    //TODO mandar a la pantalla de configuracion?
-                    return;
-
-                }
-
+                //TODO comprobar que BLEGatt esta conectado
                 crono.start();
                 inicio.setEnabled(false);
                 parar.setEnabled(true);
@@ -91,17 +83,13 @@ public class PrincipalFragment extends Fragment implements GattObserver{
 
             public void run() {
 
-                int segundos = 0; //TODO Esto es temporal, quiero ver si pasan los mismos segundos
-
                 while (!Thread.interrupted()) {
 
-                    Log.i("Thread", "segundos: " + Integer.toString(segundos));
                     BLEGatt.getInstancia().leer();
 
                     try {
 
                         Thread.sleep(1000);
-                        segundos++;
 
                     }
                     catch (InterruptedException e) {

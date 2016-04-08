@@ -103,8 +103,6 @@ public class BLEGatt {
 
             }
 
-            //leer(); //TODO Esto sobra
-
         }
 
         //Aqui se recibe la info que nos manda el dispositivoghjg
@@ -152,6 +150,12 @@ public class BLEGatt {
         if (mGatt == null) return;
         mGatt.close();
         mGatt = null;
+
+    }
+
+    public boolean isConnected(){
+
+        return mGatt != null;
 
     }
 
